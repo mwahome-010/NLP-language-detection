@@ -8,5 +8,4 @@ cleaned_combined_sentences.csv
 combined_sentences.csv
 /venv
 /__pycache__
-app.py
-utils.py
+test.py
