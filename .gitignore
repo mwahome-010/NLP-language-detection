@@ -1,0 +1,10 @@
+/.ipynb_checkpoints
+.vscode
+/__pycache__/
+data/raw_data
+data/clean_data
+data/formatted_data
+cleaned_combined_sentences.csv
+combined_sentences.csv
+/source/app.py
+utils.py
