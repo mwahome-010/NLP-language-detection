@@ -66,7 +66,6 @@ def predict():
         return jsonify({"error": "Invalid model choice"}), 400
 
     return jsonify({
-    "input": text,
     "result": result
     })
 

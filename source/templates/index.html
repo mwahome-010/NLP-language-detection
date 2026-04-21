@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Language Detector</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-<div class="detection-area">
-    <h2>Language Detector</h2>
+    <div class="detection-area">
+        <h2>Language Detector</h2>
 
-    <textarea id="text" placeholder="Enter text..."></textarea>
+        <textarea id="text" placeholder="Enter text..."></textarea>
 
-    <br>
+        <div class="select-model">
+            <label>Select Model:</label>
+            <select id="model">
+                <option value="svm">Linear SVM</option>
+                <option value="nb">Naive Bayes</option>
+                <option value="both">Compare Both</option>
+            </select>
+            
+            <button onclick="predict()">Predict</button>
+        </div>
 
-    <label>Select Model:</label>
-    <select id="model">
-        <option value="svm">Linear SVM</option>
-        <option value="nb">Naive Bayes</option>
-        <option value="both">Compare Both</option>
-    </select>
+        <div id="output" class="result"></div>
+    </div>
 
-    <br>
-
-    <button onclick="predict()">Predict</button>
-
-    <div id="output" class="result"></div>
-</div>
-
-<script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}" defer></script>
 
 </body>
+
 </html>
