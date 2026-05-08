@@ -1,3 +1,22 @@
+# Installation
+## Linux and macOS
+1. git clone https://github.com/mwahome-010/NLP-language-detection.git
+2. On the terminal, `cd NLP-language-detection`
+3. python3 -m venv source/venv
+4. source source/venv/bin/activate
+5. python3 -m pip install --upgrade pip
+6. python3 -m pip install -r source/requirements.txt
+7. python3 source/app.py
+
+## Windows
+1. git clone https://github.com/mwahome-010/NLP-language-detection.git
+2. On Powershell, `cd NLP-language-detection`
+3. python -m venv source\venv
+4. .\source\venv\Scripts\activate
+5. python -m pip install --upgrade pip
+6. python -m pip install -r source\requirements.txt
+7. python source\app.py
+
 # Project Report
 ## Data Preparation
 The dataset consisted of labelled text samples across multiple languages, including English, Swahili, Kikuyu, Somali and Sheng. The data was cleaned and balanced to reduce class bias and ensure fair model evaluation. Sheng sentences were rare to find and to balance the dataset,  other languages were downsampled to match Sheng(1039 sentences).
@@ -8,7 +27,7 @@ Text normalization was applied to improve consistency and reduce noise:
 2.  Unicode normalization (removal of diacritics, particularly for Kikuyu) 
 3. Removal of irregular character variations 
 4. Lightweight Sheng normalization to standardize spelling and slang variants while preserving linguistic identity 
-This step ensured that variations of the same word were treated as a single feature without altering the underlying language. This is of course not the case with Kikuyu dataset as ASCII normalization stripped it of diacritics, for this trade-off was deliberate.
+This step ensured that variations of the same word were treated as a single feature without altering the underlying language. However, for the Kikuyu dataset, ASCII normalization removed diacritics. This trade-off was deliberate.
 
 ## Feature Extraction
 Text data was transformed using TF-IDF vectorization with character n-grams.
@@ -29,7 +48,7 @@ The dataset was split into training and testing sets. Three models were trained:
 Each model was evaluated using accuracy on the test set.
 
 ### Accuracy Comparison
-  Model  -> 	Accuracy
+Model  -> 	Accuracy
 1. Logistic Regression -> 0.9846
 2. Linear SVM	-> 0.9894
 3. Naive Bayes	-> 0.9423
@@ -46,7 +65,7 @@ This behavior can be attributed to:
 As a result, SVM performed better on well-represented languages (e.g., English, Swahili), while Naive Bayes showed improved detection of informal and less frequent patterns such as Sheng.
 
 ## Final Model Selection
-The system supports both single-model inference and dual-model comparison (SVM and Naive Bayes).
+The system supports both single-model inference and comparison between SVM and Naive Bayes models.
 1. Linear SVM  (for high overall accuracy)
 2. Naive Bayes  (for improved detection of Sheng )
 
